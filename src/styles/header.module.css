@@ -1,19 +1,25 @@
 .header {
   display: block;
-  min-height: 64px;
-  padding: 2em 0;
   text-align: center;
   letter-spacing: -0.02em;
+  background-color: #cfc;
 }
 
 .header ul {
   list-style: none;
   padding: 0;
+  margin: 0;
 }
 
 .header ul li {
   display: inline-block;
   padding: 0 10px;
+}
+
+.header ul li:first-child {
+  display: inline-block;
+  padding: 0 10px;
+  background-color: #fff;
 }
 
 .header :global(a) {
@@ -28,6 +34,6 @@
 
 @media (max-width: 600px) {
   .header {
-    padding: .5em 0 2em;
+    padding: 0.5em 0 2em;
   }
 }

@@ -5,12 +5,13 @@ import { useRouter } from 'next/router'
 import styles from '../styles/header.module.css'
 
 const navItems: { label: string; page?: string; link?: string }[] = [
-  { label: 'Home', page: '/' },
+  { label: 'でぶ手帳', page: '/' },
   { label: 'Contact', page: '/contact' },
-  { label: 'ぽけ手帳', link: 'https://www.pokete.com/' },
+  { label: 'Twitter', link: 'https://twitter.com/gorou12' },
+  { label: '本家：ぽけ手帳', link: 'https://www.pokete.com/' },
 ]
 
-const ogImageUrl = 'https://notion-blog.now.sh/og-image.png'
+const ogImageUrl = 'https://blog.pokete.dev/og-image.png'
 
 export default ({ titlePre = '' }) => {
   const { pathname } = useRouter()
@@ -21,11 +22,11 @@ export default ({ titlePre = '' }) => {
         <title>{titlePre ? `${titlePre} |` : ''} でぶ手帳</title>
         <meta
           name="description"
-          content="An example Next.js site using Notion for the blog"
+          content="思いついたり悩んだりしていることを吐き出すだけの場所。"
         />
         <meta name="og:title" content="でぶ手帳" />
         <meta property="og:image" content={ogImageUrl} />
-        <meta name="twitter:site" content="@_ijjk" />
+        <meta name="twitter:site" content="@gorou12" />
         <meta name="twitter:card" content="summary_large_image" />
         <meta name="twitter:image" content={ogImageUrl} />
       </Head>
