@@ -1,3 +1,4 @@
+@charset "UTF-8";
 .blogIndex {
   padding: 0 5%;
 }
@@ -128,7 +129,7 @@
 .post {
   max-width: calc(600px + 10%);
   margin: 0 auto;
-  padding: 5%;
+  padding: 40px 5%;
 }
 
 .post :global(hr) {
