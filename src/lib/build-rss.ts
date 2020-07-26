@@ -2,7 +2,6 @@ import { resolve } from 'path'
 import { writeFile } from './fs-helpers'
 import { renderToStaticMarkup } from 'react-dom/server'
 
-import { textBlock } from './notion/renderers'
 import getBlogIndex from './notion/getBlogIndex'
 import getNotionUsers from './notion/getNotionUsers'
 import { postIsPublished, getBlogLink } from './blog-helpers'
@@ -36,15 +35,9 @@ function mapToEntry(post) {
       <updated>${new Date(post.date).toJSON()}</updated>
       <content type="xhtml">
         <div xmlns="http://www.w3.org/1999/xhtml">
-          ${renderToStaticMarkup(
-            post.preview
-              ? (post.preview || []).map((block, idx) =>
-                  textBlock(block, false, post.title + idx)
-                )
-              : post.content
-          )}
+          ${renderToStaticMarkup(post.content)}
           <p class="more">
-            <a href="${post.link}">Read more</a>
+            <a href="${post.link}">続きを読む…</a>
           </p>
         </div>
       </content>

@@ -273,8 +273,9 @@ const RenderPost = ({ post, redirect, preview }) => {
 
           switch (type) {
             case 'page':
-            case 'divider':
               break
+            case 'divider':
+              toRender.push(<hr />)
             case 'text':
               if (properties) {
                 toRender.push(textBlock(properties.title, false, id))

@@ -2,7 +2,6 @@ import { Sema } from 'async-sema'
 import rpc, { values } from './rpc'
 import createTable from './createTable'
 import getTableData from './getTableData'
-import { getPostPreview } from './getPostPreview'
 import { readFile, writeFile } from '../fs-helpers'
 import { BLOG_INDEX_ID, BLOG_INDEX_CACHE } from './server-constants'
 
@@ -69,9 +68,6 @@ export default async function getBlogIndex(previews = true) {
           .map(async postKey => {
             await sema.acquire()
             const post = postsTable[postKey]
-            post.preview = post.id
-              ? await getPostPreview(postsTable[postKey].id)
-              : []
             sema.release()
           })
       )
